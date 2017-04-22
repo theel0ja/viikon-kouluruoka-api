@@ -3,4 +3,4 @@
     require_once("../../Functions/Functions.php");
     require_once("../../Functions/DataFetchers.php");
 
-    echo json_encode( (new ViikonKouluruoka\ArkeaAPI)->getData("http://arkea.fi/fi/ruokalista/27/lista", "fi") );
+	echo json_encode((new ViikonKouluruoka\CGIAromiAPI)->getData("http://ruokalistat.espoocatering.fi", "bab3787c-d019-e711-a7ab-60eb696ec4bb", "fi"));
