@@ -2,8 +2,6 @@
     header("Content-Type: text/html; charset=utf-8");
     header("Access-Control-Allow-Origin: *");
 
-    error_reporting(E_ALL & ~E_NOTICE); # Notice: Use of undefined constant   - assumed ' ' in /home/theel0ja/dev/Themes/default.php on line 21 & 33
-
     function FoodList($data) {
         foreach($data as $food) {
             echo $food . "<br />";

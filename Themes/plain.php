@@ -1,5 +1,6 @@
 <?php
-    error_reporting(E_ALL & ~E_NOTICE); # Notice: Use of undefined constant   - assumed ' ' in /home/theel0ja/dev/Themes/default.php on line 21 & 33
+    //error_reporting(E_ALL & ~E_NOTICE); # Notice: Use of undefined constant   - assumed ' ' in /home/theel0ja/dev/Themes/default.php on line 21 & 33
+    # just for debug ^
 
     function FoodList($data) {
         foreach($data as $food) {
