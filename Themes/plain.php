@@ -42,19 +42,19 @@
                     <?php echo strftime("%A", $unixTime) . " " . date("d.n.", $unixTime); ?>
                 </h3>
                 
-                <?php if(isset($data["menu"]["$day"]["lunch"])) { ?>
+                <?php if(isset($data["menu"]["$day"]["lunch"]["food"])) { ?>
                     <h4><?php echo _("Lunch"); ?></h4>
-                    <?php FoodList($data["menu"]["$day"]["lunch"]); ?>
+                    <?php FoodList($data["menu"]["$day"]["lunch"]["food"]); ?>
                 <?php } ?>
 
-                <?php if(isset($data["menu"]["$day"]["vegetarian_lunch"])) { ?>
+                <?php if(isset($data["menu"]["$day"]["vegetarian_lunch"]["food"])) { ?>
                     <h4><?php echo _("Vegetarian Lunch"); ?></h4>
-                    <?php FoodList($data["menu"]["$day"]["vegetarian_lunch"]); ?>
+                    <?php FoodList($data["menu"]["$day"]["vegetarian_lunch"]["food"]); ?>
                 <?php } ?>
 
-                <?php if(isset($data["menu"]["$day"]["after_school_activity"])) { ?>
+                <?php if(isset($data["menu"]["$day"]["after_school_activity"]["food"])) { ?>
                     <h4><?php echo _("After-school activity snack"); ?></h4>
-                    <?php FoodList($data["menu"]["$day"]["after_school_activity"]); ?>
+                    <?php FoodList($data["menu"]["$day"]["after_school_activity"]["food"]); ?>
                 <?php } ?>
             </div>
         <?php

@@ -45,15 +45,36 @@
 						$response["menu"][$day]["date"] = $data["MenusForDays"][$day]["Date"];
 
 						if(isset($data["MenusForDays"][$day]["SetMenus"]["Lounas"])) {
-							$response["menu"][$day]["lunch"] = RemoveEmptyBrackets($data["MenusForDays"][$day]["SetMenus"]["Lounas"]["Components"]["Dish"]);
+							$response["menu"][$day]["lunch"]["food"] = RemoveEmptyBrackets($data["MenusForDays"][$day]["SetMenus"]["Lounas"]["Components"]["Dish"]);
+							
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["free_of_pork"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["gluten_free"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["lactose_free"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["milk_free"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["low_lactose"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["egg_free"] = "unknown";
 						}
 						if(isset($data["MenusForDays"][$day]["SetMenus"]["Kasvislounas"])) {
-							$response["menu"][$day]["vegetarian_lunch"] = RemoveEmptyBrackets($data["MenusForDays"][$day]["SetMenus"]["Kasvislounas"]["Components"]["Dish"]);
+							$response["menu"][$day]["vegetarian_lunch"]["food"] = RemoveEmptyBrackets($data["MenusForDays"][$day]["SetMenus"]["Kasvislounas"]["Components"]["Dish"]);
+							
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["free_of_pork"] = true; // What is a vegetarian lunch that has pork? :D
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["gluten_free"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["lactose_free"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["milk_free"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["low_lactose"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["egg_free"] = "unknown";
 						}
 						if(isset($data["MenusForDays"][$day]["SetMenus"]["Ip-toiminnan välipala"])) {
-							$response["menu"][$day]["after_school_activity"] = RemoveEmptyBrackets($data["MenusForDays"][$day]["SetMenus"]["Ip-toiminnan välipala"]["Components"]["Dish"]);
+							$response["menu"][$day]["after_school_activity"]["food"] = RemoveEmptyBrackets($data["MenusForDays"][$day]["SetMenus"]["Ip-toiminnan välipala"]["Components"]["Dish"]);
+						
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["free_of_pork"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["gluten_free"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["lactose_free"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["milk_free"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["low_lactose"] = "unknown";
+							$response["menu"][$day]["vegetarian_lunch"]["allergens_and_dietic_entries"]["egg_free"] = "unknown";
 						}
-						# TODO: Add support for Milkless, Eggless, etc.
+						# TODO: Add support for Milkless, Eggless, etc. (not that " (L, G, K, S)" suffix)
 				}
 
 			#$response["more_info"] = $data["RestaurantFooter"];
@@ -115,21 +136,21 @@
 				$response["menu"][$i]["date"] = $day["Date"]; # TODO: make it same format as Arkea's.
 				
 				if($lang == "fi") {
-					$response["menu"][$i]["lunch"][0] = $day["Meals"][0]["Name"]; # TODO: Do not hardcode "0"
+					$response["menu"][$i]["lunch"]["food"][0] = $day["Meals"][0]["Name"]; # TODO: Do not hardcode "0"
 				} elseif($lang == "en") {
 					# TODO: test en & sv
-					$response["menu"][$i]["lunch"][0] = $day["Meals"][0]["Translations"][0]["Name"]; # TODO: Do not hardcode to "0", use "LanguageId" instead
+					$response["menu"][$i]["lunch"]["food"][0] = $day["Meals"][0]["Translations"][0]["Name"]; # TODO: Do not hardcode to "0", use "LanguageId" instead
 				} elseif($lang == "sv") {
-					$response["menu"][$i]["lunch"][0] = $day["Meals"][0]["Translations"][1]["Name"]; # TODO: Do not hardcode to "1", use "LanguageId" instead
+					$response["menu"][$i]["lunch"]["food"][0] = $day["Meals"][0]["Translations"][1]["Name"]; # TODO: Do not hardcode to "1", use "LanguageId" instead
 				}
 				
 				if($lang == "fi") {
-					$response["menu"][$i]["vegetarian_lunch"][0] = $day["Meals"][1]["Name"]; # TODO: Do not hardcode "1"
+					$response["menu"][$i]["vegetarian_lunch"]["food"][0] = $day["Meals"][1]["Name"]; # TODO: Do not hardcode "1"
 				} elseif($lang == "en") {
 					# TODO: test en & sv
-					$response["menu"][$i]["vegetarian_lunch"][0] = $day["Meals"][1]["Translations"][0]["Name"]; # TODO: Do not hardcode to "0", use "LanguageId" instead
+					$response["menu"][$i]["vegetarian_lunch"]["food"][0] = $day["Meals"][1]["Translations"][0]["Name"]; # TODO: Do not hardcode to "0", use "LanguageId" instead
 				} elseif($lang == "sv") {
-					$response["menu"][$i]["vegetarian_lunch"][0] = $day["Meals"][1]["Translations"][1]["Name"]; # TODO: Do not hardcode to "1", use "LanguageId" instead
+					$response["menu"][$i]["vegetarian_lunch"]["food"][0] = $day["Meals"][1]["Translations"][1]["Name"]; # TODO: Do not hardcode to "1", use "LanguageId" instead
 				}
 				
 				#$response["menu"][$i]["etc"] = $day; # Just for debug purposes
