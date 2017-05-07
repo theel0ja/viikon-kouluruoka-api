@@ -28,6 +28,13 @@
 			$data = parent::downloadData($url);
 			$data = json_decode($data, TRUE);
 
+			// Function for removing empty brackets
+			//		(normally something like: " (M,L,G,S)"
+			//								  	(milk-free, lactose free and gluten free and pork free))
+			function RemoveEmptyBrackets($data) {
+				return str_replace(" ()", "", $data);
+			}
+			
 			#$response = $data;
 			$response["name"] = $data["RestaurantName"];
 			$response["url"] = $data["RestaurantUrl"];
@@ -38,13 +45,13 @@
 						$response["menu"][$day]["date"] = $data["MenusForDays"][$day]["Date"];
 
 						if(isset($data["MenusForDays"][$day]["SetMenus"]["Lounas"])) {
-							$response["menu"][$day]["lunch"] = $data["MenusForDays"][$day]["SetMenus"]["Lounas"]["Components"]["Dish"];
+							$response["menu"][$day]["lunch"] = RemoveEmptyBrackets($data["MenusForDays"][$day]["SetMenus"]["Lounas"]["Components"]["Dish"]);
 						}
 						if(isset($data["MenusForDays"][$day]["SetMenus"]["Kasvislounas"])) {
-							$response["menu"][$day]["vegetarian_lunch"] = $data["MenusForDays"][$day]["SetMenus"]["Kasvislounas"]["Components"]["Dish"];
+							$response["menu"][$day]["vegetarian_lunch"] = RemoveEmptyBrackets($data["MenusForDays"][$day]["SetMenus"]["Kasvislounas"]["Components"]["Dish"]);
 						}
 						if(isset($data["MenusForDays"][$day]["SetMenus"]["Ip-toiminnan välipala"])) {
-							$response["menu"][$day]["after_school_activity"] = $data["MenusForDays"][$day]["SetMenus"]["Ip-toiminnan välipala"]["Components"]["Dish"];
+							$response["menu"][$day]["after_school_activity"] = RemoveEmptyBrackets($data["MenusForDays"][$day]["SetMenus"]["Ip-toiminnan välipala"]["Components"]["Dish"]);
 						}
 						# TODO: Add support for Milkless, Eggless, etc.
 				}

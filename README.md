@@ -12,7 +12,7 @@ Here's some troubleshooting guides.
 ### Translations not working
 
 Make sure that you have locale generated with following command (in Linux enviroments):
-```
+```bash
 locale-gen fi_FI.UTF-8
 locale-gen sv_SE.UTF-8
 ```
