@@ -18,6 +18,7 @@
         </style>
     </head>
     <body>
+        <h1><?php echo $data["name"]; ?></h1>
         <?php
             for($day = 0; $day <= count($data["menu"]) -1; $day++) {
             
