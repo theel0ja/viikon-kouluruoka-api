@@ -12,9 +12,14 @@
         <meta charset="UTF-8" />
 
         <style>
-            * {
-                font-family: "Segoe UI";
-            }
+            /* W3.CSS 2.89 Jan 2017 by Jan Egil and Borge Refsnes */
+            /* Modified for Viikon kouluruoka "Plain" theme by Elias Ojala (github.com/theel0ja) */
+            html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
+            html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}html{overflow-x:hidden}
+            h1,h2,h3,h4,h5,h6{font-family:"Segoe UI",Arial,sans-serif}
+            /h1{font-size:36px}h2{font-size:30px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}
+            h1,h2,h3,h4,h5,h6{font-weight:400;margin:10px 0}
+            h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{font-weight:inherit}
         </style>
     </head>
     <body>
