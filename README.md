@@ -23,3 +23,7 @@ locale-gen sv_SE.UTF-8
 ```
 
 More info at [Stack Overflow](http://stackoverflow.com/a/6087538/6451184).
+
+## Docker
+
+Currently gettext doesn't work, so don't use Docker now.
