@@ -2,7 +2,6 @@
 The new backend for [Viikon kouluruoka](https://github.com/theel0ja/viikon-kouluruoka).
 
 ## Preview
-* [master](https://lab.theel0ja.info/viikon-kouluruoka-api-master/Public/)
 * [dev (turku_alakoulut, HTML)](https://api.theel0ja.info/viikon-kouluruoka/html/turku_alakoulut)
 * [dev (turku_alakoulut, JSON)](https://api.theel0ja.info/viikon-kouluruoka/json/turku_alakoulut)
 * [dev (turku_ylakoulut, HTML)](https://api.theel0ja.info/viikon-kouluruoka/html/turku_ylakoulut)

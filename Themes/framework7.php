@@ -18,6 +18,9 @@
             $dayOfWeek = $day + 1;
             $dayOfWeekNow = date("N");
             echo "\n\n";
+
+            
+            if(isset($data["menu"]["$day"]["lunch"])) {
     ?>
         <div class="day-<?php echo $dayOfWeek; if($dayOfWeek == $dayOfWeekNow) { echo " current-day"; } ?>">
             <h3>
@@ -40,5 +43,8 @@
                 <?php FoodList($data["menu"]["$day"]["after_school_activity"]["food"]); ?>
             <?php } ?>
         </div>
-    <?php } 
+
+    <?php
+            }
+        } 
     } ?>
