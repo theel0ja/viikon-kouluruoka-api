@@ -1,5 +1,8 @@
-# Viikon kouluruoka Backend
+# Viikon kouluruoka Backend (obsolete)
 The new backend for [Viikon kouluruoka](https://github.com/theel0ja/viikon-kouluruoka).
+
+**OBSOLETE**:
+Arkea has removed its JSON API, so this software is obsolete.
 
 ## Preview
 * [dev (turku_alakoulut, HTML)](https://api.theel0ja.info/viikon-kouluruoka/html/turku_alakoulut)
